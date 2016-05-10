@@ -5,9 +5,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/appStyle.css" />
         <script type="text/javascript" src="js/jquery.js"></script>
         <script>
             function signIn(){
+                var country = document.getElementById('signInCountry').value;
+                var name = document.getElementById('signInName').value;
+                var password = document.getElementById('signInPassword').value;
+                
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function (){
                     if(xhttp.readyState == 4 & xhttp.status == 200){
@@ -18,21 +23,29 @@
                     }
                 };
                 
+                xhttp.open("GET", "signIn.php?country="+country+"&name="+name+"&password="+password, true);
+                xhttp.send();
+            }
+            
+            
+            function checkUser(){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function (){
+                    if(xhttp.readyState == 4 & xhttp.status == 200){
+                        document.getElementById('response').innerHTML = xhttp.responseText;
+                    }
+                };
+                
                 var country = document.getElementById('signInCountry').value;
                 console.log(country);
                 var name = document.getElementById('signInName').value;
                 console.log(name);
                 var password = document.getElementById('signInPassword').value;
                 
-                xhttp.open("GET", "signIn.php?country="+country+"&name="+name+"&password="+password, true);
+                xhttp.open("GET", "checkUser.php?country="+country+"&name="+name+"&password="+password, true);
                 xhttp.send();
             }
             
-            function hideSingInForm(){
-                $(document).ready(function (){
-                    $('form').hide();
-                })
-            }
         </script>
   
     </head>
@@ -48,9 +61,9 @@
                 <div class="form-group">
                     <input class="form-control" type="text" id="signInPassword" placeholder="Password"/>
                 </div>
-                
             </form>
             <button class="btn btn-success" onclick="hideSingInForm(),signIn()">SignIn</button>
+            <button class="btn btn-danger" onclick="checkUser()">User?</button>
             <h4 id="response"></h4>
         </div>
     </body>

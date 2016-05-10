@@ -8,3 +8,8 @@
     border: 3px solid red;
     transform: translate(-50%, -50%);
 }
+
+html, body, .container{
+    background-image: url(../img/cheap_diagonal_fabric.png);
+    background-repeat: repeat;
+}

@@ -14,6 +14,6 @@
     $name = $_GET['name'];
     $password = $_GET['password'];
     
-    $signInUserQuery = "insert into user (name, password, country) values ('$name', '$password', '$country')";
+    $signInUserQuery = "insert into users (name, password, country) values ('$name', '$password', '$country')";
     $conn->exec($signInUserQuery);
     echo "Hello $name";
