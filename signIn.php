@@ -1,19 +1,23 @@
 <?php
     $host = 'localhost';
-    $dbname = 'howyoudoing';
-    $username = 'root';
+    $database = 'howyoudoing';
+    $user = 'root';
     $password = '';
-    
-    try {
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    } catch (PDOException $pe) {
-        echo $pe->getMessage();
-    }
     
     $country =  $_GET['country'];
     $name = $_GET['name'];
-    $password = $_GET['password'];
+    $pwd = $_GET['password'];
     
-    $signInUserQuery = "insert into users (name, password, country) values ('$name', '$password', '$country')";
-    $conn->exec($signInUserQuery);
-    echo "Hello $name";
+    $conn = new mysqli($host, $user, $password, $database);
+    
+    $signInUserQuery = "insert into users (name, password, country) values ('$name', '$pwd', '$country')";
+    $isThereUser = "select * from users where name = '$name' && country = '$country'";
+    
+    $isThereUserResutl = $conn->query($isThereUser);
+    
+    if($isThereUserResutl->num_rows == 0){
+        $conn->query($signInUserQuery);
+        echo 'Hello '.$name.'!!!';
+    }  else {
+        echo 'Sorry Bro!!! Such user is already exists!!!';
+    }
