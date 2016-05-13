@@ -6,40 +6,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.css" />
         <link rel="stylesheet" href="css/appStyle.css" />
+        <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/appscript.js"></script>
         <script>
-            
-            function selTest(){
-                var countries= ["Belarus","Russia", "Italy"];     
-                var element = document.getElementById('countries');
-                for(var i = 0; i < countries.length; i++) {
-                    var opt = document.createElement('option');
-                    opt.innerHTML = countries[i];
-                    opt.value = countries[i];
-                    element.appendChild(opt);
-                }
-            }
+           
         </script>
     </head>
     <body onload="selTest()">
         <div class="container">
-            <div class="row">
+            <h2 id="appBrand">HOW YOU DOING APP</h2>
+            <div id="credentials" class="row">
                 <div class="col-md-12">
-                    <select id="countries" class="form-control"></select>
-<!--                    <div class="form-group">
-                        <input class="form-control" type="text" id="signInCountry" placeholder="Country"/>
-                    </div>-->
+                    <select id="countries" class="form-control">
+                        <option value="" disabled selected>Country</option>
+                    </select>
                     <div class="form-group">
                         <input class="form-control" type="text" id="signInName" placeholder="Name"/>
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="text" id="signInPassword" placeholder="Password"/>
                     </div>
-                    
                 </div>
             </div>
-            <button class="btn btn-success" onclick="signIn()">SignIn</button>
+            <button id="signInBtn" class="btn btn-success" onclick="signIn()">SignIn</button>
+            <button id="logInBtn" class="btn btn-primary" onclick="logIn()">LogIn</button>
+            <button id="logOutBtn" class="btn btn-danger" onclick="logOut()">LogOut</button>
             <h4 id="response"></h4>
+            <div id="upDownBtns">
+                <a href="#"><img id="thumbUpImg" src="img/thumb_up.png" width="400" height="400"/></a>
+                <a href="#"><img id="thumbDownImg" src="img/thumb_down.png" width="250" height="250"/></a>
+                <h3 id="reasonHeader"><strong>Choose some reasons</strong></h3>
+            </div>
         </div>
     </body>
 </html>

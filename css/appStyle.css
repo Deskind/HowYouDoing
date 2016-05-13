@@ -7,6 +7,26 @@ body{
     padding-top: 30px;
 }
 
+#appBrand{
+    color: green;
+}
 
+#countries{
+    margin-bottom: 15px;
+}
 
+#logOutBtn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#thumbUpImg, #thumbDownImg{
+    margin-right: 70px;
+    border: 1px solid #31708f;
+}
+
+#reasonHeader{
+    color: coral;
+}
 
