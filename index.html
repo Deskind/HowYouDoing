@@ -32,10 +32,37 @@
             <button id="logInBtn" class="btn btn-primary" onclick="logIn()">LogIn</button>
             <button id="logOutBtn" class="btn btn-danger" onclick="logOut()">LogOut</button>
             <h4 id="response"></h4>
-            <div id="upDownBtns">
-                <a href="#"><img id="thumbUpImg" src="img/thumb_up.png" width="400" height="400"/></a>
-                <a href="#"><img id="thumbDownImg" src="img/thumb_down.png" width="250" height="250"/></a>
-                <h3 id="reasonHeader"><strong>Choose some reasons</strong></h3>
+            <!--IMAGES WITH THUMBUP AND DOWN--> 
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="upDownBtns">
+                        <a href="#"><img id="thumbUpImg" src="img/thumb_up.png" width="400" height="400"/></a>
+                        <a href="#"><img id="thumbDownImg" src="img/thumb_down.png" width="250" height="250"/></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!--CONTAINS CHOSEN REASONS AND HEADER WHICH PROPOSE TO CHOOSE REASONS-->
+            <div class="row">
+                <div class="col-md-10">
+                    <div id="chosenReasons">   
+                        <p>reasons</p>
+                    </div>
+                    <h3 id="reasonHeader"><strong>Choose some reasons</strong></h3>
+                </div>
+            </div>
+            
+            <!--REASONS ITSELF-->
+            <div class="row">
+                <div id="reason" class="col-md-1">
+                    <p id="reasonParagraph"  onclick="getReason(event)">Family</p>
+                </div>
+                <div id="reason" class="col-md-1">
+                    <p id="reasonParagraph" onclick="getReason(event)">Money</p>
+                </div>
+                <div id="reason" class="col-md-1">
+                    <p id="reasonParagraph" onclick="getReason(event)">Sport</p>
+                </div>
             </div>
         </div>
     </body>

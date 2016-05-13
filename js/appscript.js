@@ -69,4 +69,12 @@ function selTest(){
    $('#upDownBtns').hide(); 
 });
 
+//Read the reason and past it to result set of reasons.
+function getReason(event){
+    var reason = event.target.innerHTML;
+    var reasons = document.getElementById('chosenReasons');
+    var paragraphElement = document.createElement('p');
+    paragraphElement.innerHTML = reason;
+    reasons.appendChild(paragraphElement);
+}
 

@@ -30,3 +30,14 @@ body{
     color: coral;
 }
 
+#reason{
+    margin-right: 15px;
+    border: 1px solid red;
+}
+
+#reasonParagraph{
+    
+    margin: auto;
+    text-align: center;
+}
+
