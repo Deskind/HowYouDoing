@@ -71,10 +71,23 @@ function selTest(){
 
 //Read the reason and past it to result set of reasons.
 function getReason(event){
+    //arr for storing existing reasons
+    var existingReasons = [];
+    //the reason which you try to add
     var reason = event.target.innerHTML;
-    var reasons = document.getElementById('chosenReasons');
-    var paragraphElement = document.createElement('p');
-    paragraphElement.innerHTML = reason;
-    reasons.appendChild(paragraphElement);
+    //check the presense of the reason  in existing reasons
+    $('#spanChoosenReasons~span').each(function (){
+        existingReasons.push($(this).text());
+    });
+    //as result add a new reason or just alert message if the reason is already exists
+    if(existingReasons.indexOf(reason) == -1){
+        var reasons = document.getElementById('chosenReasons');
+        var paragraphElement = document.createElement('span');
+        paragraphElement.innerHTML = reason;
+        reasons.appendChild(paragraphElement);
+    }else{
+        alert('Bro! The reason in the list!!!');
+    }
+    
 }
 
