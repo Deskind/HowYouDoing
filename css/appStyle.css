@@ -41,14 +41,19 @@ body{
     text-align: center;
 }
 
-#spanChoosenReasons{
-    padding-right: 20px;
-    font-size: 30px;
-    color: blue;
-}
+
 
 #spanChoosenReasons~span{
     color: #ac2925;
     padding-right: 10px;
 }
+
+/*CHECKED ATTRIBUTE*/
+#done_btn{
+    display: none;
+}
+
+/*HIDE REASONS BEFORE LOGIN*/
+
+
 

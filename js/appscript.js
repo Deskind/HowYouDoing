@@ -34,7 +34,7 @@ function logIn(){
                 if(xhttp.responseText == 'LogIn successfuly'){
                     document.getElementById('response').innerHTML = 'Hello ' + name + ' from ' + country + '!!! How You Doing!!!???';
                     $('#credentials, #logInBtn, #signInBtn').hide();
-                    $('#upDownBtns').show(200);
+                    $('#upDownBtns, #reasons').show(200);
                     
                 }else{
                     document.getElementById('response').innerHTML = xhttp.responseText;
@@ -66,28 +66,6 @@ function selTest(){
 
 //Hide thumb up and thumb down images on load
  $(document).ready(function(){
-   $('#upDownBtns').hide(); 
+   $('#upDownBtns, #reasons').hide(); 
 });
-
-//Read the reason and past it to result set of reasons.
-function getReason(event){
-    //arr for storing existing reasons
-    var existingReasons = [];
-    //the reason which you try to add
-    var reason = event.target.innerHTML;
-    //check the presense of the reason  in existing reasons
-    $('#spanChoosenReasons~span').each(function (){
-        existingReasons.push($(this).text());
-    });
-    //as result add a new reason or just alert message if the reason is already exists
-    if(existingReasons.indexOf(reason) == -1){
-        var reasons = document.getElementById('chosenReasons');
-        var paragraphElement = document.createElement('span');
-        paragraphElement.innerHTML = reason;
-        reasons.appendChild(paragraphElement);
-    }else{
-        alert('Bro! The reason in the list!!!');
-    }
-    
-}
 

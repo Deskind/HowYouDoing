@@ -9,7 +9,17 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/appscript.js"></script>
         <script>
-           
+            var len = 0;
+            $(document).ready(function (){
+                $('input').click(function (){
+                    len = $('input:checked').length;
+                    if(len > 0){
+                        $('#done_btn').css('display', 'inline-block');
+                    }else{
+                        $('#done_btn').css('display', 'none');
+                    }
+                });
+            });
         </script>
     </head>
     <body onload="selTest()">
@@ -42,28 +52,24 @@
                 </div>
             </div>
             
-            <!--CONTAINS CHOSEN REASONS AND HEADER WHICH PROPOSE TO CHOOSE REASONS-->
-            <div class="row">
-                <div class="col-md-10">
-                    <div id="chosenReasons">   
-                        <span id="spanChoosenReasons">Your reasons:</span>
-                    </div>
-                    <h3 id="reasonHeader"><strong>Choose some reasons</strong></h3>
+            
+            <!--REASONS ITSELF-->
+            <div class="row" id="reasons">
+                <div class="col-md-12">
+                    <form action="get_reasons.php" method="post">
+                        <h3 id="reasonHeader"><strong>Choose some reasons</strong></h3>
+                        <div class="checkbox">
+                            <label class="checkbox-inline"><input type="checkbox" name="reason_list[]" value="Family">Family</label>
+                            <label class="checkbox-inline"><input type="checkbox" name="reason_list[]" value="Sport">Sport</label>
+                            <label class="checkbox-inline"><input type="checkbox" name="reason_list[]" value="Money">Money</label>
+                            <button id="done_btn" type="submit">I'm done!</button>
+                        </div>
+                        
+                    </form>
+                    
                 </div>
             </div>
             
-            <!--REASONS ITSELF-->
-            <div class="row">
-                <div id="reason" class="col-md-1">
-                    <p id="reasonParagraph"  onclick="getReason(event)">Family</p>
-                </div>
-                <div id="reason" class="col-md-1">
-                    <p id="reasonParagraph" onclick="getReason(event)">Money</p>
-                </div>
-                <div id="reason" class="col-md-1">
-                    <p id="reasonParagraph" onclick="getReason(event)">Sport</p>
-                </div>
-            </div>
         </div>
     </body>
 </html>
